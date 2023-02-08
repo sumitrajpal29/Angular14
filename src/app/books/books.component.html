@@ -1,0 +1,11 @@
+<p>books works!</p>
+<button (click)="disableButton()" [disabled]=bool [style]="style">Click</button>
+<button (click)="disableButton()" [disabled]=bool2>Click2</button>
+
+<!-- <input type="text" (keyup)="getInput($event)">
+<p>{{inputVAlue}}</p> -->
+
+
+<!-- Two way binding -->
+<input type="text" [(ngModel)]="inputVAlue">
+<p>{{inputVAlue}}</p>
