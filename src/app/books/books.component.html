@@ -6,10 +6,12 @@
 </button>
 
 <ul *ngIf='!isHidden'>
-    <ng-container *ngFor="let book of books">
+    <ng-container *ngFor="let book of books,let i= index">
         <li>
-            <p>{{book.name}} by {{book.author}}</p>
-            <img src={{book.img}} width="100px" alt="">
+            <p>{{i+1}}.</p>
+            <img src={{book.img}} width="100px" alt={{book.name}}>
+            <p>{{book.name | titlecase}} by "{{book.author | titlecase}}"</p>
+            <p>{{book.price | currency:'INR'}}</p>
         </li>
     </ng-container>
 
