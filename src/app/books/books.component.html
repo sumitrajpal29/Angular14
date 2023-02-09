@@ -1,14 +1,16 @@
 <!--    ngModel -->
 <!-- <button (click)='isHidden=!isHidden;buttonText="Hide Books"?"Show Books":"Hide Books"'>{{buttonText}}</button> -->
 <button (click)='isHidden=!isHidden'>
-    <span *ngIf="!isHidden">Hide Books</span>
-    <span *ngIf="isHidden">Show Books</span>
+    <ng-container *ngIf="!isHidden">Hide Books</ng-container>
+    <ng-container *ngIf="isHidden">Show Books</ng-container>
 </button>
 
 <ul *ngIf='!isHidden'>
-    <li><img src="https://m.media-amazon.com/images/I/41SH-SvWPxL.jpg" width="100px" alt=""></li>
-    <li><img src="https://m.media-amazon.com/images/I/410hiaPGyCL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg" width="100px"
-            alt=""></li>
-    <li><img src="https://m.media-amazon.com/images/I/61-ZAFCWcLL._SX376_BO1,204,203,200_.jpg" width="100px" alt="">
-    </li>
+    <ng-container *ngFor="let book of books">
+        <li>
+            <p>{{book.name}} by {{book.author}}</p>
+            <img src={{book.img}} width="100px" alt="">
+        </li>
+    </ng-container>
+
 </ul>
