@@ -1,11 +1,14 @@
-<p>books works!</p>
-<button (click)="disableButton()" [disabled]=bool [style]="style">Click</button>
-<button (click)="disableButton()" [disabled]=bool2>Click2</button>
+<!--    ngModel -->
+<!-- <button (click)='isHidden=!isHidden;buttonText="Hide Books"?"Show Books":"Hide Books"'>{{buttonText}}</button> -->
+<button (click)='isHidden=!isHidden'>
+    <span *ngIf="!isHidden">Hide Books</span>
+    <span *ngIf="isHidden">Show Books</span>
+</button>
 
-<!-- <input type="text" (keyup)="getInput($event)">
-<p>{{inputVAlue}}</p> -->
-
-
-<!-- Two way binding -->
-<input type="text" [(ngModel)]="inputVAlue">
-<p>{{inputVAlue}}</p>
+<ul *ngIf='!isHidden'>
+    <li><img src="https://m.media-amazon.com/images/I/41SH-SvWPxL.jpg" width="100px" alt=""></li>
+    <li><img src="https://m.media-amazon.com/images/I/410hiaPGyCL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg" width="100px"
+            alt=""></li>
+    <li><img src="https://m.media-amazon.com/images/I/61-ZAFCWcLL._SX376_BO1,204,203,200_.jpg" width="100px" alt="">
+    </li>
+</ul>
