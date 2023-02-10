@@ -1,18 +1,9 @@
-<!--    ngModel -->
-<!-- <button (click)='isHidden=!isHidden;buttonText="Hide Books"?"Show Books":"Hide Books"'>{{buttonText}}</button> -->
-<button (click)='isHidden=!isHidden'>
-    <ng-container *ngIf="!isHidden">Hide Books</ng-container>
-    <ng-container *ngIf="isHidden">Show Books</ng-container>
-</button>
+<h1 style="color:green;text-align: center;">Programming Books</h1>
+<ul>
+    <ng-container *ngFor="let oneBook of books,let i= index">
+        <app-book [book]="oneBook" (eventEmitter)="addToCart($event)">
+        </app-book>
 
-<ul *ngIf='!isHidden'>
-    <ng-container *ngFor="let book of books,let i= index">
-        <li>
-            <p>{{i+1}}.</p>
-            <img src={{book.img}} width="100px" alt={{book.name}}>
-            <p>{{book.name | titlecase}} by "{{book.author | titlecase}}"</p>
-            <p>{{book.price | currency:'INR'}}</p>
-        </li>
     </ng-container>
 
 </ul>
