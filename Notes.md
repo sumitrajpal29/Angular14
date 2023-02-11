@@ -1,37 +1,46 @@
-## Creating new Angular *Workspace*
-`ng new name`
+# Creating new Angular *Workspace*
+```
+ng new name
+```
 
 To open all in VScode 
-`cd name`
-`code .`
+```
+cd name
+code .
+```
 
-## Adding *.gitignore* after pushing into github by mistake
-`git rm -r -cached .`
-`Add .gitignore file or required updates in .gitignore`
-`add ., commit and push`
+# Adding *.gitignore* after pushing into github by mistake
+```
+git rm -r -cached .
+Add .gitignore file or required updates in .gitignore
+add ., commit and push
+```
 
-## Understanding File Structure of Angular
+# Understanding File Structure of Angular
 https://angular.io/guide/file-structure
 
-## Had to create Book a separate component
+# Had to create Book a separate component
 Book card was getting more and more data, so created a separate component Book. Now program looks neat and clean and we can use Book component to anywhere else.
 
-## Types Folder
+# Types Folder
 Created a different folder for interfaces named types, so that we can access Book interface in Books component and Book component also.
 
-## Parent to Child data sending
+# Parent to Child data sending
 Decorate the variable with @Input() where you are going to get data in child component.
 https://angular.io/generated/images/guide/inputs-outputs/input-output-diagram.svg
 
 Into Parent Component
-`<ng-container *ngFor="let oneBook of books,let i= index">
+```
+<ng-container *ngFor="let oneBook of books,let i= index">
         <app-book [book]="oneBook"></app-book>
-    </ng-container>`
+   </ng-container>
+```
 
 Into Child Component
-`@Input() book: Book = {} as Book;`
+``` @Input() book: Book = {} as Book; ```
 
-## Child to Parent data sending
+
+# Child to Parent data sending
 
 https://angular.io/guide/inputs-outputs#sending-data-to-a-parent-component
 
@@ -44,10 +53,10 @@ Import Output and EventEmitter from @angular/core module.
 
 Emit required data using this variables emit() method.
 
-<code>
-@Output sendName=new EventEmitter<String>();<br>
+```
+@Output sendName=new EventEmitter<String>();
 sendName.emit("Sumit Rajpal");
-</code>
+```
 
 In Parent component:
 
@@ -57,11 +66,31 @@ In the child selector use event binding to the event you created in child compon
 
 Now you can use this data in Parent Component
 
-<code>
+```
 <h1>
 <app-childComp (sendName)='setStudentName( $event )'></app-childComp>
 </h1>
 </code>
+```
+
+# How to delete a commit
+
+If you want to delete last commit
+```
+git reset --hard HEAD~1
+```
+it will make Head to head-1.
+
+if you want to make head 2nd previous one do:
+```
+git reset --hard HEAD~2
+```
+
+If you had pushed These commits already and your current branch is behind the remote one, then do:
+```
+git push -f
+```
+
 
 
 
