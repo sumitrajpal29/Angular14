@@ -1,9 +1,10 @@
 <h1 style="color:green;text-align: center;">Programming Books</h1>
+<button (click)="isShowing=!isShowing">{{isShowing?"Hide Books":"Show Books"}}</button>
 <ul>
-    <ng-container *ngFor="let oneBook of books,let i= index">
-        <app-book [book]="oneBook" (eventEmitter)="addToCart($event)">
-        </app-book>
-
+    <ng-container *ngIf="isShowing">
+        <ng-container *ngFor="let oneBook of books,let i= index">
+            <app-book [book]="oneBook" (eventEmitter)="addToCart($event)">
+            </app-book>
+        </ng-container>
     </ng-container>
-
 </ul>

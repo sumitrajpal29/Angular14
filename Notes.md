@@ -91,8 +91,62 @@ If you had pushed These commits already and your current branch is behind the re
 git push -f
 ```
 
+# Service 
+Services in Angular are simply typescript classes with the *@injectible decorator*. This decorator tells angular that the class is a service and can be injected into components that need that service. They can also inject other services as dependencies.
 
+One of the best use of service is to get data from data sources. Like fetching data from http requests.
 
+Services are usually implemented through dependency injection.
 
+# Dependency Injection
+DI is wired into Angular framework.
 
+You don't have to create objects/instances of required dependencies again and again, Angular checks that instance of required dependency is available in registry or not, if not, then it creates one instances of that dependency and uses this one instance/object everywhere needed.
 
+**How to inject DI:**
+
+Example:
+
+There is a ***BookService*** service, we are injecting it into our component:
+```
+books: Book[] = [];
+
+  constructor(private bookService: BooksService) {
+    console.log("In constructor");
+    this.books = bookService.getBooks();
+  }
+  ```
+
+# Custom/Feature Module
+If you want to create different module for some components, then in angular CLI:
+```
+ng generate module moduleName
+```
+
+Add components in this modules *declarations*,
+Remove that components from AppModule's declarations,
+Instead add new module into imports of AppModule.
+
+Example: Into BooksModule,
+```
+@NgModule({
+  declarations: [BooksComponent, BookComponent],
+  imports: [
+    CommonModule,
+  ],
+  exports: [
+    BooksComponent,
+  ]
+})
+export class BooksModule { }
+
+```
+Now this module will handle Books, Book components.
+Into AppModule, remove these components from declarations and add BookModule in imports:
+```
+@NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule, FormsModule, BooksModule],
+    bootstrap: [AppComponent]
+})
+```

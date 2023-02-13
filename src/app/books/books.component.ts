@@ -13,14 +13,21 @@ import { BooksService } from './books.service';
 
 export class BooksComponent implements OnInit {
   nameOfDeveloper: string = "sumitrajpal";
-  isHidden: boolean = true;
+  isShowing: boolean = true;
+  books: Book[] = [];
 
-  constructor() { }
+  constructor(private bookService: BooksService) {
+    console.log("In constructor");
+    this.books = bookService.getBooks();
+  }
 
-  bookService = new BooksService();
-  books: Book[] = this.bookService.books;
+
+  // bookService = new BooksService();
+
 
   ngOnInit(): void {
+    console.log("In ngOnInit()");
+
   }
 
   cart: Book[] = [];

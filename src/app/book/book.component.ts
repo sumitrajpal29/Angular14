@@ -11,9 +11,13 @@ export class BookComponent implements OnInit {
   @Output() eventEmitter = new EventEmitter<Book>();
   @Output() sendName = new EventEmitter<string>();
 
+  myInterval: any;
+
   constructor() { }
 
+
   ngOnInit(): void {
+
   }
 
   addToCart() {
