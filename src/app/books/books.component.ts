@@ -30,14 +30,4 @@ export class BooksComponent implements OnInit {
 
   }
 
-  cart: Book[] = [];
-
-  addToCart(book: Book) {
-    this.cart.push(book);
-
-    //logging the last book name in cart:
-    console.log(this.cart[this.cart.length - 1].name);
-
-  }
-
 }
