@@ -1,10 +1,17 @@
-<h1 style="color:green;text-align: center;">Programming Books</h1>
-<button (click)="isShowing=!isShowing">{{isShowing?"Hide Books":"Show Books"}}</button>
-<ul>
-    <ng-container *ngIf="isShowing">
-        <ng-container *ngFor="let oneBook of books,let i= index">
-            <app-book [book]="oneBook">
-            </app-book>
-        </ng-container>
+<!-- <h1 style="color:green;text-align: center;">Programming Books</h1> -->
+
+<!-- <button (click)="isShowing=!isShowing">{{isShowing?"Hide Books":"Show Books"}}</button> -->
+<!-- <ul> -->
+<!-- <ng-container *ngIf="isShowing"> -->
+<!-- <ng-container *ngFor="let oneBook of books,let i= index">
+    <app-book class="p-4" [book]="oneBook">
+    </app-book>
+</ng-container> -->
+<!-- </ng-container> -->
+<!-- </ul> -->
+
+<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <ng-container *ngFor="let oneBook of books, let i = index">
+        <app-book class="bg-white shadow overflow-hidden sm:rounded-lg" [book]="oneBook"></app-book>
     </ng-container>
 </ul>

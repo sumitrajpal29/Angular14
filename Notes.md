@@ -150,3 +150,51 @@ Into AppModule, remove these components from declarations and add BookModule in 
     bootstrap: [AppComponent]
 })
 ```
+
+
+# Router Module
+
+1. Create file *app-routing.module.ts* into app folder.
+2. Into AppModule import *AppRoutingModule* and list it into imports.
+3. Now make *AppRoutingModule* a module using export class and @NgModule() etc.
+4. In *AppRoutingModule* do these:
+```
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router'; // CLI imports router
+
+const routes: Routes = []; // sets up routes constant where you define your routes
+
+// configures NgModule imports and exports
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+5. Define your routes into Routes array:
+```
+const routes: Routes = [
+  { path: '', component: BooksComponent },
+  { path: 'cart', component: CartComponent },
+];
+```
+
+6. Add this into your *index.html* file, removing all other things:
+```
+<router-outlet></router-outlet>
+```
+
+7. Now use *routerLink* tag in anchor tag where ever you want:
+```
+<div>
+    <a routerLink="/">Book Shop</a>
+</div>
+    
+<div>
+    <a routerLink="/cart">My Cart</a>
+</div>
+```
+
+## TailWind CSS
+https://tailwindcss.com/docs/guides/angular

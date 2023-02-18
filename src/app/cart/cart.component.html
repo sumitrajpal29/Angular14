@@ -1,7 +1,5 @@
-<ng-container *ngIf="cartBooks.length!=0">
-    <h1>Your Cart</h1>
-    <ng-container *ngFor="let cartBook of cartBooks">
-        <!-- <app-book [book]="cartBook"></app-book> -->
-        <p>{{cartBook.name}}</p>
-    </ng-container>
+<h1>Your Cart</h1>
+<ng-container *ngFor="let cartBook of cartBooks">
+    <!-- <app-book [book]="cartBook"></app-book> -->
+    <p>{{cartBook.name}}</p>
 </ng-container>
