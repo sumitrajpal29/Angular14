@@ -2,7 +2,6 @@
 
 #firebase
 firebase.config.ts
-
 # Compiled output
 /dist
 /tmp

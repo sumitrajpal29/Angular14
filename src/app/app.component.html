@@ -16,7 +16,7 @@
 
 
         <ng-container *ngIf="isAuthenticated()">
-            <a class="mx-2" routerLink="/logout">LogOut</a>
+            <a class="mx-2" (click)="logOut()">LogOut</a>
         </ng-container>
     </div>
 </nav>
