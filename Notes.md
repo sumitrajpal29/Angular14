@@ -16,7 +16,7 @@ Add .gitignore file or required updates in .gitignore
 add ., commit and push
 ```
 
-# Understanding File Structure of Angular
+### Understanding File Structure of Angular
 [Look at docs](https://angular.io/guide/file-structure)
 
 # Had to create Book a separate component
