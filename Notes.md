@@ -17,7 +17,7 @@ add ., commit and push
 ```
 
 # Understanding File Structure of Angular
-https://angular.io/guide/file-structure
+[Look at docs](https://angular.io/guide/file-structure)
 
 # Had to create Book a separate component
 Book card was getting more and more data, so created a separate component Book. Now program looks neat and clean and we can use Book component to anywhere else.
